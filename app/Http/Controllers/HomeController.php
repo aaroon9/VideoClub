@@ -26,6 +26,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    
     public function getHome(){
         if (Auth::check()) {
             return redirect()->action('CatalogController@getIndex');
