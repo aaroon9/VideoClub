@@ -97,6 +97,7 @@ class ComposerStaticInit6ff99d76882d0e33f77acc8b6446b327
         ),
         'M' => 
         array (
+            'Mpociot\\HasCompositeKey\\' => 24,
             'Monolog\\' => 8,
         ),
         'L' => 
@@ -288,6 +289,10 @@ class ComposerStaticInit6ff99d76882d0e33f77acc8b6446b327
         array (
             0 => __DIR__ . '/..' . '/nexmo/client/src',
         ),
+        'Mpociot\\HasCompositeKey\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpociot/laravel-composite-key/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -427,8 +432,10 @@ class ComposerStaticInit6ff99d76882d0e33f77acc8b6446b327
     );
 
     public static $classMap = array (
+        'App\\Alquiler' => __DIR__ . '/../..' . '/app/Alquiler.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Factura' => __DIR__ . '/../..' . '/app/Factura.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -448,6 +455,7 @@ class ComposerStaticInit6ff99d76882d0e33f77acc8b6446b327
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Lineafactura' => __DIR__ . '/../..' . '/app/Lineafactura.php',
         'App\\Movie' => __DIR__ . '/../..' . '/app/Movie.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -2251,6 +2259,7 @@ class ComposerStaticInit6ff99d76882d0e33f77acc8b6446b327
         'Monolog\\ResettableInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ResettableInterface.php',
         'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
+        'Mpociot\\HasCompositeKey\\HasCompositeKey' => __DIR__ . '/..' . '/mpociot/laravel-composite-key/src/HasCompositeKey.php',
         'Nexmo\\Account\\Balance' => __DIR__ . '/..' . '/nexmo/client/src/Account/Balance.php',
         'Nexmo\\Account\\Client' => __DIR__ . '/..' . '/nexmo/client/src/Account/Client.php',
         'Nexmo\\Account\\PrefixPrice' => __DIR__ . '/..' . '/nexmo/client/src/Account/PrefixPrice.php',
