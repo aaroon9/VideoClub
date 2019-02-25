@@ -29,9 +29,10 @@ Aqui vamos a ir apuntando por secciones las tareas que se van haciendo, las que 
 
 - API RESTful
 
-## Contributing
+## SCSS
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Instalar node.js i npm -> https://www.npmjs.com/get-npm
+Ejecutar npm run watch para que vaya compilando el css
 
 ## Security Vulnerabilities
 
