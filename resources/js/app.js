@@ -28,6 +28,20 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+/*const app = new Vue({
     el: '#app'
 });
+
+var today = new Date();
+var dd = today.getDate()+5;
+var mm = today.getMonth(); //Enero es 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+    today = yyyy+'-'+mm+'-'+dd;
+    console.log(today);
+    document.getElementById("fechaAlquiler").setAttribute("max", today);*/
