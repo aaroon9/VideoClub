@@ -31,12 +31,13 @@ Aqui vamos a ir apuntando por secciones las tareas que se van haciendo, las que 
 
 ## SCSS
 
+https://www.youtube.com/watch?v=tFmcOOdiLv0
 Instalar node.js i npm -> https://www.npmjs.com/get-npm
 Ejecutar npm run watch para que vaya compilando el css
 
-## Security Vulnerabilities
+## Enlaces interes
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Login to guapo: https://www.youtube.com/watch?v=HV7DtH3J2PU
 
 ## License
 
