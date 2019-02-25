@@ -29,17 +29,24 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/catalog/show/{id}', 'CatalogController@getShow');
 	    
-
 	Route::get('/catalog/create', 'CatalogController@getCreate');
 	    
-
 	Route::get('/catalog/edit/{id}', 'CatalogController@getEdit');
 
 	Route::post('/catalog/create', 'CatalogController@postCreate');
+
 	Route::put('/catalog/edit/{id}', 'CatalogController@putEdit');
 
 	Route::put('/catalog/rent/{id}', 'CatalogController@putRent');
+
 	Route::put('/catalog/return/{id}', 'CatalogController@putReturn');
+
+	//Alquiler
+	Route::put('/catalog/rent/{id}', 'AlquilerController@putInsert');
+
+	Route::put('/catalog/return/{id}', 'AlquilerController@putReturn');
+	
+	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
 });
 
