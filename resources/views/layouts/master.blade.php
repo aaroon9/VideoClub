@@ -8,12 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Condiment" rel="stylesheet">
-    <style media="screen">
-      .navbar-brand {
-        font-family: 'Condiment', cursive;
-        font-size: 1.5em;
-      }
-    </style>
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
   </head>
   <body>
     @include('partials.navbar')
