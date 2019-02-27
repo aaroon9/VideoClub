@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
-use Notification; 
+use Notification;
 class CatalogController extends Controller
 {
     public function getIndex(){
@@ -67,6 +67,7 @@ class CatalogController extends Controller
             Notification::success('Success message');
         return redirect('/catalog/show/'.$id);
     }
+    
     public function deleteMovie($id){
         $peli = Movie::findOrFail($id);
         $peli->delete();
