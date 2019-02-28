@@ -25,12 +25,12 @@ Route::get('/logout', function () {
 });*/
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/catalog', 'CatalogController@getIndex'); 
+	Route::get('/catalog', 'CatalogController@getIndex');
 
 	Route::get('/catalog/show/{id}', 'CatalogController@getShow');
-	    
+
 	Route::get('/catalog/create', 'CatalogController@getCreate');
-	    
+
 	Route::get('/catalog/edit/{id}', 'CatalogController@getEdit');
 
 	Route::post('/catalog/create', 'CatalogController@postCreate');
@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::put('/catalog/return/{id}', 'AlquilerController@putReturn');
 	
+	Route::put('/catalog/return/{id}', 'AlquilerController@addMore');
+
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
 });
@@ -53,4 +55,3 @@ Route::group(['middleware' => 'auth'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-

@@ -55,7 +55,31 @@ class AlquilerController extends Controller
       return redirect('/catalog/show/'.$id_movie);
     }
 
-    public function addMore(){
-      //$alquiler = Alquiler::findOrFail(47);
+    public function addMore($id_movie, Request $request){
+      $alquiler = Alquiler::all();
+      $userAuth = Auth::user()->id;
+      $dias = $request->input('dias');
+      //dd($dias);
+      foreach ($alquiler as $alqui) {
+
+        if($alqui->id_user == $userAuth && $alqui->id_movie == 53){
+          $patata=new Alquiler();
+          $fecha = $alqui->fecha_fin;
+          $fechaMore = date('Y-m-d', strtotime($fecha. ' + '.$dias));
+          //$alqui->fecha_fin = date('Y-m-d', strtotime($fecha. ' + '.$dias));
+          $alqui->fecha_fin = $fechaMore;
+          $alqui->save();
+          /*$patata->id_user = $alqui->id_user;
+          $patata->id_movie = $alqui->id_movie;
+          $patata->fecha_ini = $alqui->fecha_ini;
+          $patata->fecha_fin = $fechaMore;
+          $patata->save();*/
+
+          //dd(strtotime($fecha. ' + 1 days'));
+        }
+      }
+      //$alquiler->save();
+
+
     }
 }
