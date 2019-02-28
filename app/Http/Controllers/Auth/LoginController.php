@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Socialite;
 
 class LoginController extends Controller
 {
@@ -58,6 +59,16 @@ class LoginController extends Controller
         $githubUser = Socialite::driver('github')->user();
 
         dd($githubUser);
+
+        // add user to database
+        $user = User::create([
+          'email' => $githubUser->getEmail(),
+          'name' => $githubUser->getName(),
+          'provider_id' => $githubUser->getId(),
+        ]);
+
+        // login the users
+        
         // $user->token;
     }
 }

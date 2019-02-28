@@ -45,11 +45,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::put('/catalog/rent/{id}', 'AlquilerController@putInsert');
 
 	Route::put('/catalog/return/{id}', 'AlquilerController@putReturn');
-<<<<<<< HEAD
-=======
-	
+
 	Route::put('/catalog/return/{id}', 'AlquilerController@addMore');
->>>>>>> 01ddfca7a123af9587005bea19f90e34462b00be
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
@@ -58,9 +55,6 @@ Route::group(['middleware' => 'auth'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
 
 Route::get('login/github', 'Auth\LoginController@redirectToProvider');
 Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
-=======
->>>>>>> 01ddfca7a123af9587005bea19f90e34462b00be
