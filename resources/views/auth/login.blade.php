@@ -28,6 +28,8 @@
 
         <input type="submit" name="" value="Login">
 
+        <a href="" class="btn btn-outline-dark" type="button" name="button">Login with Github</a>
+
         <div style="text-align: right;">
           @if (Route::has('password.request'))
               <a href="{{ route('password.request') }}">
