@@ -1,5 +1,5 @@
 .box{
-  width: 300px;
+  width: 400px;
   padding: 40px;
   position: absolute;
   top: 50%;
@@ -9,17 +9,19 @@
   text-align: center;
 }
 .box h1{
+  font-family: 'Condiment', cursive;
   color: white;
-  text-transform: uppercase;
   font-weight: 500;
+  text-align: center;
+  font-size: 3em;
 }
-.box input[type = "email"],.box input[type = "password"]{
+.box input[type = "email"],.box input[type = "password"],.box input[type = "text"],.box input[type = "password-confirm"]{
   border:0;
   background: none;
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #3498db;
+  border: 2px solid white;
   padding: 14px 10px;
   width: 200px;
   outline: none;
@@ -27,7 +29,7 @@
   border-radius: 24px;
   transition: 0.25s;
 }
-.box input[type = "email"]:focus,.box input[type = "password"]:focus{
+.box input[type = "email"]:focus,.box input[type = "password"]:focus,.box input[type = "text"]:focus,.box input[type = "password-confirm"]:focus{
   width: 280px;
   border-color: #2ecc71;
 }
@@ -38,7 +40,7 @@
   margin: 20px auto;
   text-align: center;
   border: 2px solid #2ecc71;
-  padding: 14px 40px;
+  padding: 10px 35px;
   outline: none;
   color: white;
   border-radius: 24px;
@@ -47,4 +49,8 @@
 }
 .box input[type = "submit"]:hover{
   background: #2ecc71;
+}
+
+.form-check-label-login {
+  color: white;
 }

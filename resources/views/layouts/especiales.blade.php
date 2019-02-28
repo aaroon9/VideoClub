@@ -8,23 +8,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Condiment" rel="stylesheet">
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <style media="screen">
     body {
-      background-color: darkgreen;
+      /* background-color: darkgreen; */
       background-repeat: no-repeat;
       background-attachment: fixed;
-    }
-      .navbar-brand {
-        font-family: 'Condiment', cursive;
-        font-size: 1.5em;
-      }
-    .container-login {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      /* The translate value for transform is based off the size of the element,
-      so that will center nicely. */
-      transform: translate(-50%, -50%);
     }
     </style>
   </head>
