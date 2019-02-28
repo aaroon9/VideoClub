@@ -19,11 +19,12 @@
 	        <p><span style="font-weight: bold;">Resumen: </span>{{$pelicula->synopsis}}</p>
 
 	        <?php if ($pelicula->rented == false): ?>
-	        	<form action="{{action('AlquilerController@putReturn', $pelicula->id)}}"
+	        	<form action="{{action('AlquilerController@addMore', $pelicula->id)}}"
 				    method="POST" style="display:inline">
 				    {{ method_field('PUT') }}
 				    {{ csrf_field() }}
             <div class="form-group">
+              <input type="text" id="dias" name="dias" value="3 days">
               <label class="mt-3" for="customRange3" style="font-weight: bold;">Días de alquiler:</label>&nbsp
               <input type="date" id="fechaAlquiler" class="form-control" min='1899-01-01' max='2020-12-31'>
             </div>
