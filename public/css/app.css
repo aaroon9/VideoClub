@@ -11665,7 +11665,9 @@ a.text-dark:focus {
 }
 
 .box input[type="email"],
-.box input[type="password"] {
+.box input[type="password"],
+.box input[type="text"],
+.box input[type="password-confirm"] {
   border: 0;
   background: none;
   display: block;
@@ -11682,7 +11684,9 @@ a.text-dark:focus {
 }
 
 .box input[type="email"]:focus,
-.box input[type="password"]:focus {
+.box input[type="password"]:focus,
+.box input[type="text"]:focus,
+.box input[type="password-confirm"]:focus {
   width: 280px;
   border-color: #2ecc71;
 }

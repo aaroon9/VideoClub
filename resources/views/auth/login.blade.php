@@ -3,12 +3,11 @@
 @section('content')
 <div class="container container-login">
 
-
     <form class="box" method="POST" action="{{ route('login') }}">
         @csrf
         <h1>pordede.com</h1>
 
-        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
+        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required>
 
         @if ($errors->has('email'))
             <span class="invalid-feedback" role="alert">
