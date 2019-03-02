@@ -5,7 +5,7 @@
 
     <form class="box" method="POST" action="{{ route('login') }}">
         @csrf
-        <h1>pordede.com</h1>
+        <h1>blockbuster</h1>
 
         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required>
 
@@ -28,7 +28,9 @@
 
         <input type="submit" name="" value="Login">
 
-        <a href="login/github" class="btn btn-outline-dark" type="button" name="button">Login with Github</a>
+        <button href="login/github" class="botoLoginGithub" type="button"><i class="fab fa-github"></i> Github</button>
+        <button href="login/twitter" class="botoLoginTwitter" type="button"><i class="fab fa-twitter"></i> Twitter</button>
+        <button href="login/google" class="botoLoginGoogle" type="button"><i class="fab fa-google"></i> Google</button>
 
         <div style="text-align: right;">
           @if (Route::has('password.request'))

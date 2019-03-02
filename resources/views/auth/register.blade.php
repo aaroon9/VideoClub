@@ -34,7 +34,7 @@
 
         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repetir contraseña" required>
 
-        <input type="submit" name="" value="Login">
+        <input type="submit" name="" value="Registro">
     </form>
 
 </div>

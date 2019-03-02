@@ -26,6 +26,6 @@ class AddUnidadesToMoviesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movies');
+        
     }
 }
