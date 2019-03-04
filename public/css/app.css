@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://use.fontawesome.com/releases/v5.7.2/css/all.css);/*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
@@ -11709,6 +11709,63 @@ a.text-dark:focus {
 
 .box input[type="submit"]:hover {
   background: #2ecc71;
+}
+
+.box .botoLoginGithub {
+  border: 0;
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #767676;
+  padding: 10px 10px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box .botoLoginGithub:hover {
+  background: #767676;
+}
+
+.box .botoLoginTwitter {
+  border: 0;
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #00aced;
+  padding: 10px 10px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box .botoLoginTwitter:hover {
+  background: #00aced;
+}
+
+.box .botoLoginGoogle {
+  border: 0;
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #d34836;
+  padding: 10px 10px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.box .botoLoginGoogle:hover {
+  background: #d34836;
 }
 
 .form-check-label-login {

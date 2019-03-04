@@ -46,7 +46,11 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::put('/catalog/return/{id}', 'AlquilerController@putReturn');
 
+<<<<<<< HEAD
 	Route::put('/catalog/moredays/{id}', 'AlquilerController@addMore');
+=======
+	Route::put('/catalog/return/{id}', 'AlquilerController@addMore');
+>>>>>>> 9ee9ac29521abfbeaf5a76d6a437cbabc53e0f83
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
@@ -55,3 +59,6 @@ Route::group(['middleware' => 'auth'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('login/{service}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{service}/callback', 'Auth\LoginController@handleProviderCallback');
