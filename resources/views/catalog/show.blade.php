@@ -36,7 +36,7 @@
 
 	        <?php endif ?>
 	        <?php if ($pelicula->rented == true): ?>
-	        	<form action="{{action('AlquilerController@putReturn', $pelicula->id)}}"
+	        	<form action="{{action('AlquilerController@putInsert', $pelicula->id)}}"
 				    method="POST" style="display:inline">
 				    {{ method_field('PUT') }}
 				    {{ csrf_field() }}
