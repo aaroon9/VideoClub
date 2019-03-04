@@ -19,7 +19,7 @@
 	        <p><span style="font-weight: bold;">Resumen: </span>{{$pelicula->synopsis}}</p>
 
 	        <?php if ($pelicula->rented == false): ?>
-	        	<form action="{{action('AlquilerController@addMore', $pelicula->id)}}"
+	        	<form action="{{action('AlquilerController@putReturn', $pelicula->id)}}"
 				    method="POST" style="display:inline">
 				    {{ method_field('PUT') }}
 				    {{ csrf_field() }}
@@ -36,7 +36,7 @@
 
 	        <?php endif ?>
 	        <?php if ($pelicula->rented == true): ?>
-	        	<form action="{{action('AlquilerController@putReturn', $pelicula->id)}}"
+	        	<form action="{{action('AlquilerController@putInsert', $pelicula->id)}}"
 				    method="POST" style="display:inline">
 				    {{ method_field('PUT') }}
 				    {{ csrf_field() }}

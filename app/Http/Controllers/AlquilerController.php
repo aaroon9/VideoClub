@@ -17,7 +17,8 @@ class AlquilerController extends Controller
     	$alquiler->id_user = Auth::user()->id;
     	$alquiler->id_movie = (int)$id_movie;
     	$alquiler->fecha_ini = date("Y-m-d");
-    	$alquiler->fecha_fin = '2019-02-19';
+    	$alquiler->fecha_fin = date('Y-m-d', strtotime($alquiler->fecha_fin. ' + 3 days'));
+      $alquiler->save();
 
 
     	//Restem una pelicula del total
@@ -26,11 +27,12 @@ class AlquilerController extends Controller
 
         //Guardem els canvis en la base de dades
         $peli->save();
-        $alquiler->save();
+
         Notification::success('Pelicula alquilada');
 
         return redirect('/catalog/show/'.$id_movie);
     }
+
     /*Metodo encargado de devolver una pelicula*/
     public function putReturn($id_movie){
       $userAuth = Auth::user()->id;
@@ -45,41 +47,43 @@ class AlquilerController extends Controller
            $borrar = Alquiler::where([
                     ['id_user', $userAuth],
                     ['id_movie', $id_movie],])->delete();
+           $peli->unidads++;
         }
       }
-      /*no funciona aumentar la cantidad*/
-      $peli->unidads++;
 
-
-      Notification::success('Pelicula devuelta');
-      return redirect('/catalog/show/'.$id_movie);
+      if($peli->save()){
+        Notification::success('Pelicula devuelta');
+        return redirect('/catalog/show/'.$id_movie);
+      }else {
+        //Notificacion erronea;
+        //Notification::
+        return redirect('/catalog/show/'.$id_movie);
+      }
     }
-
+    /*Funcion que se encarga de añadir mas dias a un alquiler de un cliente*/
     public function addMore($id_movie, Request $request){
       $alquiler = Alquiler::all();
       $userAuth = Auth::user()->id;
       $dias = $request->input('dias');
-      //dd($dias);
-      foreach ($alquiler as $alqui) {
 
-        if($alqui->id_user == $userAuth && $alqui->id_movie == 53){
-          $patata=new Alquiler();
-          $fecha = $alqui->fecha_fin;
-          $fechaMore = date('Y-m-d', strtotime($fecha. ' + '.$dias));
-          //$alqui->fecha_fin = date('Y-m-d', strtotime($fecha. ' + '.$dias));
-          $alqui->fecha_fin = $fechaMore;
-          $alqui->save();
-          /*$patata->id_user = $alqui->id_user;
-          $patata->id_movie = $alqui->id_movie;
-          $patata->fecha_ini = $alqui->fecha_ini;
-          $patata->fecha_fin = $fechaMore;
-          $patata->save();*/
+      foreach($alquiler as $alqui) {
 
-          //dd(strtotime($fecha. ' + 1 days'));
+        if($alqui->id_user == $userAuth && $alqui->id_movie == $id_movie){
+          $fechaMore = date('Y-m-d', strtotime($alqui->fecha_fin. ' + '.$dias));
+
+          $addMore = new Alquiler;
+          $addMore->id_user = Auth::user()->id;
+          $addMore->id_movie = $alqui->id_movie;
+          $addMore->fecha_ini = $alqui->fecha_ini;
+          $addMore->fecha_fin = date($fechaMore);
+          $borrar = Alquiler::where([
+                   ['id_user', $userAuth],
+                   ['id_movie', $id_movie],])->delete();
+          $addMore->save();
         }
       }
-      //$alquiler->save();
-
-
+      Notification::success('Fecha cambiada');
+      return redirect('/catalog/show/'.$id_movie);
     }
+
 }
