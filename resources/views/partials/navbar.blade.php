@@ -50,7 +50,7 @@
                             Admin
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Mis peliculas</a>
+                            <a class="dropdown-item" href="/mysite">Mis peliculas</a>
                             <a class="dropdown-item" href="#">Mis facturas</a>
                             <form action="{{ url('/logout') }}" method="POST">
                                 {{ csrf_field() }}
