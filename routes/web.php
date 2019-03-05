@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::put('/catalog/moredays/{id}', 'AlquilerController@addMore');
 
+	//user
+	Route::get('/mysite', 'AuthController@mySite');
+
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
 });
