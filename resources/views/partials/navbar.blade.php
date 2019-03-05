@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="/">blockbuster</a>
 
@@ -16,11 +16,11 @@
                     </li>
 
                     <!-- ################################################################### -->
-                    <!-- Esto deberia ser solo visible para el admin o no visible para nadie -->                    
+                    <!-- Esto deberia ser solo visible para el admin o no visible para nadie -->
                     <!-- ################################################################### -->
                     <li class="nav-item {{  Request::is('catalog/create') ? 'active' : ''}}"  style="visibility: hidden">
                         <a class="nav-link" href="{{url('/catalog/create')}}">
-                            <span>&#10010</span> Nueva película
+                            <span>&10010</span> Nueva película
                         </a>
                     </li>
                 </ul>

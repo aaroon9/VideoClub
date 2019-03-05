@@ -5,9 +5,9 @@
 // @include font-face(blockletterregular, public/css/fonts/blockletter);
 @font-face {
     font-family: 'blockletterregular';
-    src: url('/public/css/fonts/blockletter/blockletter-webfont.woff2') format("woff2"),
-		 url('/public/css/fonts/blockletter/blockletter-webfont.woff') format("woff"),
-		 url('/public/css/fonts/blockletter/blockletter-webfont.ttf') format("truetype");
+    src: url('../../public/css/fonts/blockletter/blockletter-webfont.woff2') format("woff2"),
+		 url('../../public/css/fonts/blockletter/blockletter-webfont.woff') format("woff"),
+		 url('../../public/css/fonts/blockletter/blockletter-webfont.ttf') format("truetype");
 }
 
 
@@ -21,7 +21,11 @@
 @import 'navbar';
 @import 'login';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+// .navbar-laravel {
+//   background-color: #fff;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+// }
+
+body {
+  background: darkgrey;
 }

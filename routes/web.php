@@ -48,15 +48,12 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::put('/catalog/moredays/{id}', 'AlquilerController@addMore');
 
-<<<<<<< HEAD
 
 	Route::put('/catalog/moredays/{id}', 'AlquilerController@addMore');
 
 	Route::put('/catalog/moredays/{id}', 'AlquilerController@addMore');
 
 	Route::put('/catalog/return/{id}', 'AlquilerController@addMore');
-=======
->>>>>>> 99aab9554ef297711fcd02fc2b9e5d0f1dfeb374
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
