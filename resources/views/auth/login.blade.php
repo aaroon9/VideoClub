@@ -28,9 +28,9 @@
 
         <input type="submit" name="" value="Login">
 
-        <button href="login/github" class="botoLoginGithub" type="button"><i class="fab fa-github"></i> Github</button>
-        <button href="login/twitter" class="botoLoginTwitter" type="button"><i class="fab fa-twitter"></i> Twitter</button>
-        <button href="login/google" class="botoLoginGoogle" type="button"><i class="fab fa-google"></i> Google</button>
+        <button href="/login/github" class="botoLoginGithub" type="button"><i class="fab fa-github"></i> Github</button>
+        <button href="/login/twitter" class="botoLoginTwitter" type="button"><i class="fab fa-twitter"></i> Twitter</button>
+        <button href="/login/google" class="botoLoginGoogle" type="button"><i class="fab fa-google"></i> Google</button>
 
         <div style="text-align: right;">
           @if (Route::has('password.request'))

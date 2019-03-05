@@ -2,6 +2,14 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+@font-face {
+font-family: "BlockbusterFont";
+src: url("../../public/css/fonts/blockletter/blockletter.eot");
+src: url("http://blockbuster.com/public/css/fonts/blockletter.woff") format("woff");
+src: url("http://blockbuster.com/public/css/fonts/blockletter.woff2") format("woff2");
+}
+
+
 // Variables
 @import 'variables';
 
