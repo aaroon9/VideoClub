@@ -2,8 +2,6 @@
 
 @section('content')
 
-    Listado de peliculas
-
     <div class="row">
 
     @foreach( $peliculas as $pelicula )
@@ -20,5 +18,5 @@
     @endforeach
 
 	</div>
-    
+
 @stop
