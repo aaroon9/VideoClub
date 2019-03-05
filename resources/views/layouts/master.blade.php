@@ -13,7 +13,7 @@
   <body>
     @include('partials.navbar')
     {!! Notification::showAll() !!}
-    <div class="container">
+    <div class="container container-master">
       @yield('content')
     </div>
 

@@ -54,7 +54,7 @@
                             <a class="dropdown-item" href="#">Mis facturas</a>
                             <form action="{{ url('/logout') }}" method="POST" style="display:inline">
                                 {{ csrf_field() }}
-                                <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
+                                <button type="submit" class="dropdown-item" style="display:inline;cursor:pointer">
                                     Cerrar sesión
                                 </button>
                             </form>
