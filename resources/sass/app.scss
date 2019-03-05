@@ -2,11 +2,12 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+// @include font-face(blockletterregular, public/css/fonts/blockletter);
 @font-face {
-font-family: "BlockbusterFont";
-src: url("../../public/css/fonts/blockletter/blockletter.eot");
-src: url("http://blockbuster.com/public/css/fonts/blockletter.woff") format("woff");
-src: url("http://blockbuster.com/public/css/fonts/blockletter.woff2") format("woff2");
+    font-family: 'blockletterregular';
+    src: url('/public/css/fonts/blockletter/blockletter-webfont.woff2') format("woff2"),
+		 url('/public/css/fonts/blockletter/blockletter-webfont.woff') format("woff"),
+		 url('/public/css/fonts/blockletter/blockletter-webfont.ttf') format("truetype");
 }
 
 

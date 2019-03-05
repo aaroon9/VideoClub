@@ -1,4 +1,37 @@
+$blau: #0E3FA9;
+$taronja: #FFA903;
+
+.navbar {
+	background-color: $blau;
+	color: white;
+}
+
 .navbar-brand {
-  font-family: 'blockletterregular', cursive;
+  font-family: 'blockletterregular';
   font-size: 1.5em;
+  color: $taronja;
+}
+
+.navbar-toggler {
+	color: $taronja;
+}
+
+.navbar-toggler {
+    color: $taronja!important;
+}
+
+.nav-link {
+    color: white;
+}
+
+.navbar-search {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+    background-color: $blau;
+    border: 1px solid $taronja;
+}
+.navbar-userIcon {
+    margin-left: 1rem;
+    margin-right: 1rem;
 }

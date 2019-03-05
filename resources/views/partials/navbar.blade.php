@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="/" style="color:#777">pordede</a>
+        <a class="navbar-brand" href="/">blockbuster</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i>
         </button>
 
         @if(Auth::check() )
@@ -11,11 +11,14 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {{ Request::is('catalog') && ! Request::is('catalog/create')? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/catalog')}}">
-                            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
                             Catálogo
                         </a>
                     </li>
-                    <li class="nav-item {{  Request::is('catalog/create') ? 'active' : ''}}">
+
+                    <!-- ################################################################### -->
+                    <!-- Esto deberia ser solo visible para el admin o no visible para nadie -->                    
+                    <!-- ################################################################### -->
+                    <li class="nav-item {{  Request::is('catalog/create') ? 'active' : ''}}"  style="visibility: hidden">
                         <a class="nav-link" href="{{url('/catalog/create')}}">
                             <span>&#10010</span> Nueva película
                         </a>
@@ -24,12 +27,33 @@
 
                 <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
+                        <input class="form-control navbar-search w-100" type="text" placeholder="Search" aria-label="Search">
+                    </li>
+                    <!-- <li class="nav-item">
                         <form action="{{ url('/logout') }}" method="POST" style="display:inline">
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-link nav-link" style="display:inline;cursor:pointer">
                                 Cerrar sesión
                             </button>
                         </form>
+                    </li> -->
+                    <li class="nav-item navbar-userIcon">
+                        <!-- Esto debe de ir al panel de usuario directamente -->
+                        <a class="nav-link" href="{{url('/user/{id}')}}">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <!-- Esto es un dropdown con la opcioni panel, y cerrar sesion -->
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!-- Aqui deberia mostrar el nombre del user -->
+                            Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Mis peliculas</a>
+                            <a class="dropdown-item" href="#">Mis facturas</a>
+                            <a class="dropdown-item" href="#">Cerrar sesión</a>
+                        </div>
                     </li>
                 </ul>
             </div>
