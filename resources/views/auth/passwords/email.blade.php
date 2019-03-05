@@ -11,7 +11,8 @@
 
     <form class="box" method="POST" action="{{ route('password.email') }}">
         @csrf
-        <h1>reset password</h1>
+        <h1>blockbuster</h1>
+        <h3>reset password</h3>
         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required>
 
         @if ($errors->has('email'))

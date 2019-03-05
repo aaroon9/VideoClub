@@ -23,22 +23,23 @@
             </span>
         @endif
 
-        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-        <label class="form-check-label form-check-label-login" for="remember"> {{ __('Recuérdame') }} </label>
-
+        <div class="custom-control custom-checkbox">
+          <input class="custom-control-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+          <label class="custom-control-label form-check-label-login" for="remember"> {{ __('Recuérdame') }} </label>
+        </div>
         <input type="submit" name="" value="Login">
 
-        <button href="{{ url('/login/github') }}" class="botoLoginGithub" type="button"><i class="fab fa-github"></i> Github</button>
-        <button href="{{ url('/login/twitter') }}" class="botoLoginTwitter" type="button"><i class="fab fa-twitter"></i> Twitter</button>
-        <button href="{{ url('/login/google') }}" class="botoLoginGoogle" type="button"><i class="fab fa-google"></i> Google</button>
+        <a href="{{ url('/login/github') }}" class="btn botoLoginGithub" role="button"><i class="fab fa-github"></i> Github</a>
+        <a href="{{ url('/login/twitter') }}" class="btn botoLoginTwitter" role="button"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="{{ url('/login/google') }}" class="btn botoLoginGoogle" role="button"><i class="fab fa-google"></i> Google</a>
 
         <div style="text-align: right;">
           @if (Route::has('password.request'))
-              <a href="{{ route('password.request') }}">
+              <a href="{{ route('password.request') }}" class="links-login">
                   {{ __('Has olvidado tu contraseña?') }}
               </a><br>
           @endif
-          <a href="{{ route('register') }}">Regístrate ahora</a>
+          <a href="{{ route('register') }}" class="links-login">Regístrate ahora</a>
         </div>
     </form>
 

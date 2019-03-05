@@ -10,7 +10,6 @@
 		 url('../../public/css/fonts/blockletter/blockletter-webfont.ttf') format("truetype");
 }
 
-
 // Variables
 @import 'variables';
 
@@ -20,16 +19,22 @@
 // Custom css
 @import 'navbar';
 @import 'login';
+@import 'catalog';
 
 // .navbar-laravel {
 //   background-color: #fff;
 //   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 // }
 
-body {
-  background: darkgrey;
+.body-master {
+  background-color: $negre;
+  color: white;
 }
 
 .container-master {
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+.body-especiales{
+  background-color: $blau;
 }

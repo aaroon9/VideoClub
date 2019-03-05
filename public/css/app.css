@@ -11652,20 +11652,26 @@ a.text-dark:focus {
 
 .navbar-brand {
   font-family: 'blockletterregular';
-  font-size: 2.5em;
+  font-size: 2.7em;
   color: #FFA903;
+}
+
+.navbar-brand:hover {
+  color: #FFA903;
+  text-decoration: none;
 }
 
 .navbar-toggler {
   color: #FFA903;
-}
-
-.navbar-toggler {
-  color: #FFA903 !important;
 }
 
 .nav-link {
   color: white;
+}
+
+.nav-link:hover {
+  color: #FFA903;
+  text-decoration: none;
 }
 
 .navbar-search {
@@ -11681,28 +11687,49 @@ a.text-dark:focus {
   margin-right: 1rem;
 }
 
-body {
-  background-color: #0E3FA9;
+.navbar-search::-webkit-input-placeholder {
+  color: white;
+}
+
+.navbar-search::-ms-input-placeholder {
+  color: white;
+}
+
+.navbar-search::placeholder {
+  color: white;
 }
 
 .box {
-  width: 400px;
-  padding: 40px;
+  width: 500px;
+  padding: 100px;
+  padding-top: 70px;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background: #191919;
+  background: #0E3FA9;
   text-align: center;
+  border: 2px solid #FFA903;
+  border-radius: 2px;
 }
 
 .box h1 {
-  font-family: 'Condiment', cursive;
-  color: white;
+  font-family: 'blockletterregular';
+  color: #FFA903;
   font-weight: 500;
   text-align: center;
-  font-size: 3em;
+  font-size: 4em;
+  margin-bottom: 3rem;
+}
+
+.box h3 {
+  font-family: 'blockletterregular';
+  color: #FFA903;
+  font-weight: 500;
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 1rem;
 }
 
 .box input[type="email"],
@@ -11730,6 +11757,27 @@ body {
 .box input[type="password-confirm"]:focus {
   width: 280px;
   border-color: #FFA903;
+}
+
+.box input[type="email"]::-webkit-input-placeholder,
+.box input[type="password"]::-webkit-input-placeholder,
+.box input[type="text"]::-webkit-input-placeholder,
+.box input[type="password-confirm"]::-webkit-input-placeholder {
+  color: white;
+}
+
+.box input[type="email"]::-ms-input-placeholder,
+.box input[type="password"]::-ms-input-placeholder,
+.box input[type="text"]::-ms-input-placeholder,
+.box input[type="password-confirm"]::-ms-input-placeholder {
+  color: white;
+}
+
+.box input[type="email"]::placeholder,
+.box input[type="password"]::placeholder,
+.box input[type="text"]::placeholder,
+.box input[type="password-confirm"]::placeholder {
+  color: white;
 }
 
 .box input[type="submit"] {
@@ -11813,11 +11861,43 @@ body {
   color: white;
 }
 
-body {
-  background: darkgrey;
+.links-login {
+  color: white;
+}
+
+.links-login:hover {
+  text-decoration: none;
+  color: #FFA903;
+}
+
+.img-catalog {
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 1.1rem;
+  border-radius: 2px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.img-catalog:hover {
+  border: 2px solid #FFA903;
+  border-radius: 2px;
+}
+
+.img-show {
+  border-radius: 2px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.body-master {
+  background-color: #141414;
+  color: white;
 }
 
 .container-master {
-  margin-top: 2rem;
+  margin-top: 3rem;
+}
+
+.body-especiales {
+  background-color: #0E3FA9;
 }
 

@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Condiment" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
   </head>
-  <body>
+  <body class="body-master">
     @include('partials.navbar')
     {!! Notification::showAll() !!}
     <div class="container container-master">
