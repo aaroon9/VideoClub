@@ -52,7 +52,12 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">Mis peliculas</a>
                             <a class="dropdown-item" href="#">Mis facturas</a>
-                            <a class="dropdown-item" href="#">Cerrar sesión</a>
+                            <form action="{{ url('/logout') }}" method="POST">
+                                {{ csrf_field() }}
+                                <button type="submit" class="dropdown-item">
+                                    Cerrar sesión
+                                </button>
+                            </form>
                         </div>
                     </li>
                 </ul>
