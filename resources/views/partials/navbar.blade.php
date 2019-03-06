@@ -47,7 +47,7 @@
                         <!-- Esto es un dropdown con la opcioni panel, y cerrar sesion -->
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <!-- Aqui deberia mostrar el nombre del user -->
-                            Admin
+                            {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/mysite">Mis peliculas</a>
