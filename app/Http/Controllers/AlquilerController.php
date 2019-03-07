@@ -11,13 +11,16 @@ use Notification;
 
 class AlquilerController extends Controller
 {
-    public function putInsert($id_movie){
+    public function putInsert($id_movie, Request $request){
+
+      $dias = $request->input('diasD');
+      //dd($dias);
 
     	$alquiler = new Alquiler;
     	$alquiler->id_user = Auth::user()->id;
     	$alquiler->id_movie = (int)$id_movie;
     	$alquiler->fecha_ini = date("Y-m-d");
-    	$alquiler->fecha_fin = date('Y-m-d', strtotime($alquiler->fecha_fin. ' + 3 days'));
+    	$alquiler->fecha_fin = date('Y-m-d', strtotime($alquiler->fecha_fin. ' + '.$dias.' days'));
       $alquiler->save();
 
 

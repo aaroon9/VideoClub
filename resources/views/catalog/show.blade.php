@@ -17,6 +17,7 @@
 	        <p style="font-size: 18px";>Año: {{$pelicula->year}}</p>
 	        <p style="font-size: 18px";><span>Director: </span>{{$pelicula->director}}</p>
 	        <p><span style="font-weight: bold;">Resumen: </span>{{$pelicula->synopsis}}</p>
+	        <p><span style="font-weight: bold;">Unidades: </span>{{$pelicula->unidads}}</p>
 
 	        <?php if ($pelicula->rented == false): ?>
 	        	<form action="{{action('AlquilerController@putInsert', $pelicula->id)}}"
@@ -24,9 +25,14 @@
 				    {{ method_field('PUT') }}
 				    {{ csrf_field() }}
             <div class="form-group">
-              <input type="text" id="dias" name="dias" value="3 days">
-              <label class="mt-3" for="customRange3" style="font-weight: bold;">Días de alquiler:</label>&nbsp
-              <input type="date" id="fechaAlquiler" class="form-control" min='1899-01-01' max='2020-12-31'>
+              <label for="exampleFormControlSelect1" style="font-weight: bold;">Días de alquiler</label>
+                <select class="form-control"name="diasD" id="diasD">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
             </div>
 				    	<p><span style="font-weight: bold;">Estado: </span>Película disponible</p>
 	        			<button type="submit" class="btn btn-info"><a>Alquilar película</a>
