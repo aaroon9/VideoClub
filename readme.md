@@ -7,15 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Cosas pendientes por seccion
+### Cosas pendientes por seccion
 
 Aqui vamos a ir apuntando por secciones las tareas que se van haciendo, las que estan hechas y las que estan por hacer, para tener un seguimiento del estado actual del proyecto.
 
-### Registro
+## Registro, login, reset pswd
 
 - API RESTful
 
-### Alquiler
+## Alquiler
 
 - Crear controlador:
     - Insert
@@ -26,17 +26,13 @@ Aqui vamos a ir apuntando por secciones las tareas que se van haciendo, las que 
 
 - API RESTful
 
-### SCSS
+## SCSS
 
   https://www.youtube.com/watch?v=tFmcOOdiLv0
   - Instalar node.js i npm -> https://www.npmjs.com/get-npm
   - Ejecutar npm run watch para que vaya compilando el css
 
-### Enlaces interes
-
-Login to guapo: https://www.youtube.com/watch?v=HV7DtH3J2PU
-
-### Socialite
+## Socialite
 Bueno, bueno, bueno. Tela carinyu.
   - Github: de puta madre, a al primera sin problemas. UPDATE: ya no va
 
@@ -54,8 +50,8 @@ Bueno, bueno, bueno. Tela carinyu.
 
   - Google: algo pasa que dice que le falta un campo redirect_uri
   
-### Facturas
-
+## Facturas
+El DEV de este package es catala, quina gracia.
 El package en si es sencillo, es solo meter el text siguiente con los datos de variables que queramos
 ```shell
 $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
@@ -80,7 +76,28 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
  ])
  ->download('demo');
 ```
+### Set up
+- Instalamos el paquete
+  ```shell
+  composer require consoletvs/invoices
+  ```
+- Modificamos parametros
+  ```shell
+  php artisan vendor:publish --tag=invoices
+  ```
+  Tambien podemos modificarlos dentro de config/invoices.php 
 
-### License
+## Carrito (https://github.com/Crinsane/LaravelShoppingcart)
+
+- Instalamos el paquete
+  ```shell
+  composer require gloudemans/shoppingcart
+  ```
+
+## Enlaces interes
+
+- Login to guapo: https://www.youtube.com/watch?v=HV7DtH3J2PU
+
+## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
