@@ -93,6 +93,88 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
   ```shell
   composer require gloudemans/shoppingcart
   ```
+#### Afegir element
+```shell
+  Cart::add('293ad', 'Product 1', 1, 9.99);
+```
+#### Modificar element
+```shell
+  Cart::update($rowId, 2); // Will update the quantity
+```
+#### Eliminar element
+```shell
+  Cart::remove($rowId);
+```
+#### Get element
+```shell
+  Cart::get($rowId);
+```
+#### Array d'elements del carrito
+```shell
+  Cart::content();
+```
+#### Altres
+```shell
+  Cart::destroy();     // Elimiina tots els elements del carrito
+  Cart::total();       // Valor total del carrito
+  Cart::tax();         // Valor total de les taxes
+  Cart::subtotal();    // Valor total dels productes sense taxes
+  Cart::count();       // Numero de productes dins carrito
+```
+#### Petit exemple
+```shell
+// Add some items in your Controller.
+Cart::add('192ao12', 'Product 1', 1, 9.99);
+Cart::add('1239ad0', 'Product 2', 2, 5.95, ['size' => 'large']);
+
+// Display the content in a View.
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+      <?php foreach(Cart::content() as $row) :?>
+
+          <tr>
+              <td>
+                  <p><strong><?php echo $row->name; ?></strong></p>
+                  <p><?php echo ($row->options->has('size') ? $row->options->size : ''); ?></p>
+              </td>
+              <td><input type="text" value="<?php echo $row->qty; ?>"></td>
+              <td>$<?php echo $row->price; ?></td>
+              <td>$<?php echo $row->total; ?></td>
+          </tr>
+
+      <?php endforeach;?>
+
+    </tbody>
+    
+    <tfoot>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+        <td>Subtotal</td>
+        <td><?php echo Cart::subtotal(); ?></td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+        <td>Tax</td>
+        <td><?php echo Cart::tax(); ?></td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+        <td>Total</td>
+        <td><?php echo Cart::total(); ?></td>
+      </tr>
+    </tfoot>
+</table>
+```
 
 ## Enlaces interes
 
