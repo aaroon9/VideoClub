@@ -19,18 +19,21 @@ class AlquilerController extends Controller
     	$alquiler->fecha_ini = date("Y-m-d");
     	$alquiler->fecha_fin = date('Y-m-d', strtotime($alquiler->fecha_fin. ' + 3 days'));
       $alquiler->save();
+      
 
+    	// Restem una pelicula del total
+      $peli = Movie::findOrFail($id_movie);
+      $peli->unidads -= 1;
 
-    	//Restem una pelicula del total
-        $peli = Movie::findOrFail($id_movie);
-        $peli->unidads -= 1;
+      // Agafem les dades de la peli i les afegim al carrito. Haurem de comprovar si ja esta al carrito
+      // Cart::add($peli->id, $peli->title, $peli->precio, '1');
 
-        //Guardem els canvis en la base de dades
-        $peli->save();
+      // Guardem els canvis a la base de dades
+      $peli->save();
 
-        Notification::success('Pelicula alquilada');
+      Notification::success('Pelicula alquilada');
 
-        return redirect('/catalog/show/'.$id_movie);
+      return redirect('/catalog/show/'.$id_movie);
     }
 
     /*Metodo encargado de devolver una pelicula*/

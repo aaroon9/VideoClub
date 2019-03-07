@@ -60,6 +60,11 @@
                             </form>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/user/{id}/cart')}}">
+                            <i class="fas fa-shopping-cart"> {{{ isset(Cart::count()) ? Cart::count() : '0' }}}</i>
+                        </a>
+                    </li>
                 </ul>
             </div>
         @endif
