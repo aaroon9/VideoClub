@@ -89,37 +89,23 @@ $invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
 
 ## Carrito (https://github.com/Crinsane/LaravelShoppingcart)
 
-- Instalamos el paquete
-  ```shell
-  composer require gloudemans/shoppingcart
-  ```
-#### Afegir element
+#### Instalamos el paquete
 ```shell
-  Cart::add('293ad', 'Product 1', 1, 9.99);
+composer require gloudemans/shoppingcart
 ```
-#### Modificar element
+
+#### Funcions
 ```shell
-  Cart::update($rowId, 2); // Will update the quantity
-```
-#### Eliminar element
-```shell
-  Cart::remove($rowId);
-```
-#### Get element
-```shell
-  Cart::get($rowId);
-```
-#### Array d'elements del carrito
-```shell
-  Cart::content();
-```
-#### Altres
-```shell
-  Cart::destroy();     // Elimiina tots els elements del carrito
-  Cart::total();       // Valor total del carrito
-  Cart::tax();         // Valor total de les taxes
-  Cart::subtotal();    // Valor total dels productes sense taxes
-  Cart::count();       // Numero de productes dins carrito
+  Cart::add('293ad', 'Product 1', 1, 9.99);  //Afegir element
+  Cart::update($rowId, 2);  // Modificar element, aquest cas modifica quantitat
+  Cart::remove($rowId);     // Eliminar element
+  Cart::get($rowId);        // Get element
+  Cart::content();          // Array d'elements del carrito
+  Cart::destroy();          // Elimiina tots els elements del carrito
+  Cart::total();            // Valor total del carrito
+  Cart::tax();              // Valor total de les taxes
+  Cart::subtotal();         // Valor total dels productes sense taxes
+  Cart::count();            // Numero de productes dins carrito
 ```
 #### Petit exemple
 ```shell
