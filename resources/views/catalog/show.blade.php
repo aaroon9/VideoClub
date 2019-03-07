@@ -19,7 +19,7 @@
 	        <p><span style="font-weight: bold;">Resumen: </span>{{$pelicula->synopsis}}</p>
 	        <p><span style="font-weight: bold;">Unidades: </span>{{$pelicula->unidads}}</p>
 
-	        <?php if ($pelicula->rented == false): ?>
+	        <?php if ($pelicula->unidads >= 0): ?>
 	        	<form action="{{action('AlquilerController@putInsert', $pelicula->id)}}"
 				    method="POST" style="display:inline">
 				    {{ method_field('PUT') }}
@@ -39,27 +39,15 @@
 	        			</button>
 				</form>
 
-
-	        <?php endif ?>
-	        <?php if ($pelicula->rented == true): ?>
-	        	<form action="{{action('AlquilerController@putReturn', $pelicula->id)}}"
-				    method="POST" style="display:inline">
-				    {{ method_field('PUT') }}
-				    {{ csrf_field() }}
-				    	<p><span style="font-weight: bold;">Estado: </span>Película no disponible</p>
-	        			<button type="submit" class="btn btn-danger"><a>Return pelicula</a>
-	        			</button>
-				</form>
-
 	        <?php endif ?>
 	        <a class="btn btn-warning" href="/catalog/edit/{{$pelicula->id}}">Editar película</a>
 	        <form action="{{action('CatalogController@deleteMovie', $pelicula->id)}}"
 			    method="POST" style="display:inline">
 			    {{ method_field('DELETE') }}
 			    {{ csrf_field() }}
-			    <button type="submit" class="btn btn-dark" style="display:inline">
+			    <?php /*<button type="submit" class="btn btn-dark" style="display:inline">
 			        Borrar Pelicula
-			    </button>
+			    </button>*/ ?>
 			</form>
 	        <a class="btn btn-light" href="/catalog">Volver al listado</a>
 

@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	//user
 	Route::get('/mysite', 'AuthController@mySite');
+	Route::get('/mysite/show/{id}', 'AuthController@getView');
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');

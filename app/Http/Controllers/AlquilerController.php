@@ -33,7 +33,7 @@ class AlquilerController extends Controller
 
         Notification::success('Pelicula alquilada');
 
-        return redirect('/catalog/show/'.$id_movie);
+        return redirect('/catalog');
     }
 
     /*Metodo encargado de devolver una pelicula*/
@@ -57,22 +57,18 @@ class AlquilerController extends Controller
       if($peli->save()){
         Notification::success('Pelicula devuelta');
         return redirect('/catalog/show/'.$id_movie);
-      }else {
-        //Notificacion erronea;
-        //Notification::
-        return redirect('/catalog/show/'.$id_movie);
       }
     }
     /*Funcion que se encarga de añadir mas dias a un alquiler de un cliente*/
     public function addMore($id_movie, Request $request){
       $alquiler = Alquiler::all();
       $userAuth = Auth::user()->id;
-      $dias = $request->input('dias');
+      $dias = $request->input('diasD');
 
       foreach($alquiler as $alqui) {
 
         if($alqui->id_user == $userAuth && $alqui->id_movie == $id_movie){
-          $fechaMore = date('Y-m-d', strtotime($alqui->fecha_fin. ' + '.$dias));
+          $fechaMore = date('Y-m-d', strtotime($alqui->fecha_fin. ' + '.$dias.' days'));
 
           $addMore = new Alquiler;
           $addMore->id_user = Auth::user()->id;
@@ -86,7 +82,7 @@ class AlquilerController extends Controller
         }
       }
       Notification::success('Fecha cambiada');
-      return redirect('/catalog/show/'.$id_movie);
+      return redirect('/mysite/show/'.$id_movie);
     }
 
 }

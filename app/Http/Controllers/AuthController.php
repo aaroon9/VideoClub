@@ -17,5 +17,12 @@ class AuthController extends Controller
 
     return view('auth.myCatalog', array('peliculas' => $movies), array('alquilers' => $alquiler));
   }
+  public function getView($id){
+
+    $alquiler = Alquiler::all();
+    $movie = Movie::findOrFail($id);
+
+    return view('auth.show', array('pelicula' => $movie), array('alquilers' => $alquiler));
+  }
 }
  ?>
