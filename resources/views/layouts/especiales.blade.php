@@ -9,15 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Condiment" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <style media="screen">
-    body {
-      /* background-color: darkgreen; */
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
     </style>
   </head>
-  <body>
+  <body class="body-especiales">
     {!! Notification::showAll() !!}
     <div class="container">
       @yield('content')

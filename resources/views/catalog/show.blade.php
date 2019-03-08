@@ -8,7 +8,7 @@
 
 	    <div class="col-sm-4">
 
-	        <img src="{{$pelicula->poster}}"/>
+	        <img class="img-show" height="400" width="270" src="{{$pelicula->poster}}"/>
 
 	    </div>
 	    <div class="col-sm-8">

@@ -1,0 +1,16 @@
+.img-catalog {
+  object-fit: cover;
+  margin-bottom: 1.1rem;
+  border-radius: 2px;
+  border: 2px solid rgba(255,255,255,.2)
+}
+
+.img-catalog:hover {
+  border: 2px solid $taronja;
+  border-radius: 2px;
+}
+
+.img-show {
+  border-radius: 2px;
+  border: 2px solid rgba(255,255,255,.2)
+}

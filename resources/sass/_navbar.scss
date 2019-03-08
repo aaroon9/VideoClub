@@ -1,6 +1,3 @@
-$blau: #0E3FA9;
-$taronja: #FFA903;
-
 .navbar {
 	background-color: $blau;
 	color: white;
@@ -9,20 +6,27 @@ $taronja: #FFA903;
 
 .navbar-brand {
   font-family: 'blockletterregular';
-  font-size: 2.5em;
+  font-size: 2.7em;
   color: $taronja;
+}
+
+.navbar-brand:hover
+{
+   color: $taronja;
+   text-decoration: none;
 }
 
 .navbar-toggler {
 	color: $taronja;
 }
 
-.navbar-toggler {
-    color: $taronja!important;
-}
-
 .nav-link {
     color: white;
+}
+
+.nav-link:hover {
+    color: $taronja;
+		text-decoration: none;
 }
 
 .navbar-search {
@@ -35,4 +39,8 @@ $taronja: #FFA903;
 .navbar-userIcon {
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+.navbar-search::placeholder {
+		color: white;
 }

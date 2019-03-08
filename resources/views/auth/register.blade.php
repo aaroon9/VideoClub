@@ -5,7 +5,8 @@
 
     <form class="box" method="POST" action="{{ route('register') }}">
         @csrf
-        <h1>Registro</h1>
+        <h1>blockbuster</h1>
+        <h3>Registro</h3>
 
         <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Nombre de usuario" required>
 
