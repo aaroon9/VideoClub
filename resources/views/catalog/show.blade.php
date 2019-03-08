@@ -20,8 +20,11 @@
 	        <p><span style="font-weight: bold;">Unidades: </span>{{$pelicula->unidads}}</p>
 
 	        <?php if ($pelicula->unidads >= 0): ?>
-	        	<form action="{{action('AlquilerController@putInsert', $pelicula->id)}}"
+	        	<?php /*<form action="{{action('AlquilerController@putInsert', $pelicula->id)}}"
+            method="POST" style="display:inline">*/ ?>
+	        	<form action="{{action('CartController@createItem', $pelicula->id)}}"
 				    method="POST" style="display:inline">
+
 				    {{ method_field('PUT') }}
 				    {{ csrf_field() }}
             <div class="form-group">
@@ -40,7 +43,7 @@
 				</form>
 
 	        <?php endif ?>
-	        <a class="btn btn-warning" href="/catalog/edit/{{$pelicula->id}}">Editar película</a>
+	        <?php /*<a class="btn btn-warning" href="/catalog/edit/{{$pelicula->id}}">Editar película</a>*/ ?>
 	        <form action="{{action('CatalogController@deleteMovie', $pelicula->id)}}"
 			    method="POST" style="display:inline">
 			    {{ method_field('DELETE') }}
