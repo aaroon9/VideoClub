@@ -22,7 +22,7 @@ class AlquilerController extends Controller
     	$alquiler->fecha_ini = date("Y-m-d");
     	$alquiler->fecha_fin = date('Y-m-d', strtotime($alquiler->fecha_fin. ' + '.$dias.' days'));
       $alquiler->save();
-      
+
 
     	// Restem una pelicula del total
       $peli = Movie::findOrFail($id_movie);
@@ -36,11 +36,7 @@ class AlquilerController extends Controller
 
       Notification::success('Pelicula alquilada');
 
-<<<<<<< HEAD
         return redirect('/catalog');
-=======
-      return redirect('/catalog/show/'.$id_movie);
->>>>>>> 12a4376c211486efb62edc2b8ed9462825c3ccc7
     }
 
     /*Metodo encargado de devolver una pelicula*/
