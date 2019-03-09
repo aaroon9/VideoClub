@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Movie;
 use Notification;
 class CatalogController extends Controller
@@ -67,12 +68,18 @@ class CatalogController extends Controller
             Notification::success('Success message');
         return redirect('/catalog/show/'.$id);
     }
-    
+
     public function deleteMovie($id){
         $peli = Movie::findOrFail($id);
         $peli->delete();
         Notification::success('Success message');
         return redirect('/catalog');
+    }
+
+    public function search (Request $request) {
+      $search = $request->get('search');
+      $posts = DB::table('movies')->where('title', 'like', '%'.$search.'%');
+      return view('catalog.catalog', ['peliculas' => $posts]);
     }
 
 }

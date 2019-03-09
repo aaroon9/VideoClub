@@ -58,6 +58,13 @@ Route::group(['middleware' => 'auth'], function() {
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
+
+	// Search
+	Route::get('/search', 'CatalogController@search');
+
+	// facturas
+	Route::get('myinvoices', 'InvoicesController@myinvoices');
+
 });
 
 Auth::routes();

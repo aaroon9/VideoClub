@@ -1,0 +1,29 @@
+.tabla-carrito {
+  color: white;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-carrito td, .tabla-carrito th {
+  border: 1px solid white;
+  padding: 0.7rem 1rem;
+}
+
+ .tabla-carrito th {
+   text-align: left;
+   color: $taronja;
+   font-weight: normal;
+ }
+
+ .tabla-carrito .carrito-prods {
+   padding: 1rem 1rem;
+ }
+
+ .tabla-carrito .carrito-separacio td,  .tabla-carrito .carrito-separacio {
+   border: none;
+   padding: 0;
+ }
+
+ .tabla-carrito p {
+   margin-bottom: 0;
+ }

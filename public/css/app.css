@@ -9,9 +9,6 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-.table{
-  color:#fff !important;
-}
 
 :root {
   --blue: #3490dc;
@@ -11891,6 +11888,38 @@ a.text-dark:focus {
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
+.tabla-carrito {
+  color: white;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-carrito td,
+.tabla-carrito th {
+  border: 1px solid white;
+  padding: 0.7rem 1rem;
+}
+
+.tabla-carrito th {
+  text-align: left;
+  color: #FFA903;
+  font-weight: normal;
+}
+
+.tabla-carrito .carrito-prods {
+  padding: 1rem 1rem;
+}
+
+.tabla-carrito .carrito-separacio td,
+.tabla-carrito .carrito-separacio {
+  border: none;
+  padding: 0;
+}
+
+.tabla-carrito p {
+  margin-bottom: 0;
+}
+
 .body-master {
   background-color: #141414;
   color: white;
@@ -11903,3 +11932,4 @@ a.text-dark:focus {
 .body-especiales {
   background-color: #0E3FA9;
 }
+

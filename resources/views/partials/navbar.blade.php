@@ -27,7 +27,10 @@
 
                 <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
-                        <input class="form-control navbar-search w-100" type="text" placeholder="Search" aria-label="Search">
+                      <form action="/search" method="get">
+                          <input class="form-control navbar-search w-100" type="search" name="search" placeholder="Search">
+                      </form>
+
                     </li>
                     <!-- <li class="nav-item">
                         <form action="{{ url('/logout') }}" method="POST" style="display:inline">
@@ -37,21 +40,17 @@
                             </button>
                         </form>
                     </li> -->
-                    <li class="nav-item navbar-userIcon">
-                        <!-- Esto debe de ir al panel de usuario directamente -->
-                        <a class="nav-link" href="{{url('/user/{id}')}}">
-                            <i class="fas fa-user"></i>
-                        </a>
-                    </li>
+
                     <li class="nav-item dropdown">
                         <!-- Esto es un dropdown con la opcioni panel, y cerrar sesion -->
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <!-- Aqui deberia mostrar el nombre del user -->
+                            <i class="fas fa-user" style="padding-right: 0.7rem; padding-left: 2rem;"></i>
                             {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/mysite">Mis peliculas</a>
-                            <a class="dropdown-item" href="#">Mis facturas</a>
+                            <a class="dropdown-item" href="/myinvoices">Mis facturas</a>
                             <form action="{{ url('/logout') }}" method="POST">
                                 {{ csrf_field() }}
                                 <button type="submit" class="dropdown-item">
@@ -62,8 +61,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/mycart')}}">
-                          <i class="fas fa-shopping-cart"></i>
-                            <?php /* {{{ isset(Cart::count()) ? Cart::count() : '0' }}}</i>*/ ?>
+                          <i class="fas fa-shopping-cart" style="padding-left:1rem;"></i>
+                              {{ null !== (Cart::count()) ? Cart::count() : '0' }}
                         </a>
                     </li>
                 </ul>
