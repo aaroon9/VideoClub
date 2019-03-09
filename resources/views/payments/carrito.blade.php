@@ -2,7 +2,7 @@
 
 @section('content')
 
-<table>
+<table  class="table">
    	<thead>
        	<tr>
            	<th>Pelicula</th>
@@ -14,33 +14,39 @@
 
    	<tbody>
    		@foreach( Cart::content() as $row )
+      <?php /* dd($row)  */ ?>
 	        <tr>
            		<td>
-       				<p><strong>{{ $row->title }}</strong></p>
-               		<p>{{ $row->quantity }}</p>
+              @foreach($pelicula as $peli)
+                @if($row->name == $peli->id)
+       				<p><strong>{{ $peli->title }}</strong></p>
+                @endif
+              @endforeach
+                <p>{{ $row->quantity }}</p>
            		</td>
-           		<td><input type="text" value="<?php echo $row->qty; ?>"></td>
-           		<td>$<?php echo $row->price; ?></td>
-           		<td>$<?php echo $row->total; ?></td>
+           		<td><?php echo $row->qty; ?></td>
+           		<td><?php echo $row->price; ?>   €</td>
+           		<td><?php echo ($row->qty * $row->price) ?> €</td>
        		</tr>
+
        	@endforeach
     </tbody>
-   	
+
    	<tfoot>
    		<tr>
    			<td colspan="2">&nbsp;</td>
    			<td>Subtotal</td>
-   			<td><?php echo Cart::subtotal(); ?></td>
+   			<td><?php echo Cart::subtotal(); ?> €</td>
    		</tr>
    		<tr>
    			<td colspan="2">&nbsp;</td>
    			<td>Tax</td>
-   			<td><?php echo Cart::tax(); ?></td>
+   			<td><?php echo Cart::tax(); ?> €</td>
    		</tr>
    		<tr>
    			<td colspan="2">&nbsp;</td>
    			<td>Total</td>
-   			<td><?php echo Cart::total(); ?></td>
+   			<td><?php echo Cart::total(); ?> €</td>
    		</tr>
    	</tfoot>
 </table>

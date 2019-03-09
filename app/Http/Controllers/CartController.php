@@ -7,11 +7,13 @@ use App\Movie;
 use App\User;
 use Auth;
 use Notification;
+use Cart;
 
 class CartController extends Controller
 {
   public function getView(){
-    return view('payments.carrito');
+    $movie = Movie::all();
+    return view('payments.carrito', array('pelicula' => $movie));
   }
   public function createItem($id_movie, Request $request){
 
