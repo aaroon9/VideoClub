@@ -63,7 +63,9 @@
   <form class="" action="{{action('CartController@destroyCart')}}" method="POST">
     {{ method_field('PUT') }}
     {{ csrf_field() }}
-    <button type="submit" name="button" class="boton-carrito vaciar-carrito">Vaciar carrito</button>
+    @if(Cart::count() > 0)
+      <button type="submit" name="button" class="boton-carrito vaciar-carrito">Vaciar carrito</button>
+    @endif
   </form>
 </div>
 <div class="col-fin">
