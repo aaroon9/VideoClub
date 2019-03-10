@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Temps de generació: 13-02-2019 a les 18:15:40
+-- Temps de generació: 11-03-2019 a les 00:34:47
 -- Versió del servidor: 10.1.36-MariaDB
 -- Versió de PHP: 7.2.11
 
@@ -32,11 +32,18 @@ DROP TABLE IF EXISTS `alquiler`;
 CREATE TABLE `alquiler` (
   `id_user` int(10) UNSIGNED NOT NULL,
   `id_movie` int(10) UNSIGNED NOT NULL,
-  `fecha_ini` date NOT NULL,
-  `fecha_fin` date NOT NULL,
+  `fecha_ini` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcament de dades per a la taula `alquiler`
+--
+
+INSERT INTO `alquiler` (`id_user`, `id_movie`, `fecha_ini`, `fecha_fin`, `created_at`, `updated_at`) VALUES
+(3, 48, '2019-03-07', '2019-03-14', '2019-03-07 18:09:53', '2019-03-07 18:09:53');
 
 -- --------------------------------------------------------
 
@@ -47,8 +54,19 @@ CREATE TABLE `alquiler` (
 DROP TABLE IF EXISTS `factura`;
 CREATE TABLE `factura` (
   `id` int(10) UNSIGNED NOT NULL,
-  `id_user` int(10) UNSIGNED NOT NULL
+  `id_user` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcament de dades per a la taula `factura`
+--
+
+INSERT INTO `factura` (`id`, `id_user`, `created_at`, `updated_at`) VALUES
+(201921383, 3, '2019-03-10 20:38:19', '2019-03-10 20:38:19'),
+(201922073, 3, '2019-03-10 21:07:52', '2019-03-10 21:07:52'),
+(201922593, 3, '2019-03-10 21:59:38', '2019-03-10 21:59:38');
 
 -- --------------------------------------------------------
 
@@ -63,6 +81,15 @@ CREATE TABLE `lineafactura` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Bolcament de dades per a la taula `lineafactura`
+--
+
+INSERT INTO `lineafactura` (`id_factura`, `articuls`, `created_at`, `updated_at`) VALUES
+(201921383, 1, '2019-03-10 20:38:19', '2019-03-10 20:38:19'),
+(201922073, 1, '2019-03-10 21:07:52', '2019-03-10 21:07:52'),
+(201922593, 1, '2019-03-10 21:59:38', '2019-03-10 21:59:38');
 
 -- --------------------------------------------------------
 
@@ -87,9 +114,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_01_09_152955_create_movies_table', 1),
 (4, '2019_02_11_183201_create_alquiler_table', 2),
 (5, '2019_02_11_184457_add_unidades_to_movies_table', 2),
-(14, '2019_02_13_150532_create_factura_table', 3),
-(15, '2019_02_13_150807_create_linea_factura_table', 3),
-(16, '2019_02_13_165913_add_unidades_to_movies_table', 3);
+(18, '2019_02_13_150532_create_factura_table', 3),
+(19, '2019_02_13_150807_create_linea_factura_table', 3),
+(20, '2019_02_13_165913_add_unidades_to_movies_table', 4),
+(21, '2019_03_10_211823_add_create_to_factura_table', 4);
 
 -- --------------------------------------------------------
 
@@ -117,14 +145,14 @@ CREATE TABLE `movies` (
 --
 
 INSERT INTO `movies` (`id`, `title`, `year`, `director`, `poster`, `rented`, `synopsis`, `created_at`, `updated_at`, `precio`, `unidads`) VALUES
-(46, 'El padrino', '1972', 'Francis Ford Coppola', 'http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX214_AL_.jpg', 0, 'Don Vito Corleone (Marlon Brando) es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York. Tiene cuatro hijos: Connie (Talia Shire), el impulsivo Sonny (James Caan), el pusilánime Freddie (John Cazale) y Michael (Al Pacino), que no quiere saber nada de los negocios de su padre. Cuando Corleone, en contra de los consejos de \'Il consigliere\' Tom Hagen (Robert Duvall), se niega a intervenir en el negocio de las drogas, el jefe de otra banda ordena su asesinato. Empieza entonces una violenta y cruenta guerra entre las familias mafiosas.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 3),
-(47, 'El Padrino. Parte II', '1974', 'Francis Ford Coppola', 'http://ia.media-imdb.com/images/M/MV5BNDc2NTM3MzU1Nl5BMl5BanBnXkFtZTcwMTA5Mzg3OA@@._V1_SX214_AL_.jpg', 0, 'Continuación de la historia de los Corleone por medio de dos historias paralelas: la elección de Michael Corleone como jefe de los negocios familiares y los orígenes del patriarca, el ya fallecido Don Vito, primero en Sicilia y luego en Estados Unidos, donde, empezando desde abajo, llegó a ser un poderosísimo jefe de la mafia de Nueva York.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 3),
-(48, 'La lista de Schindler', '1993', 'Steven Spielberg', 'http://es.web.img3.acsta.net/c_215_290/pictures/14/02/27/09/35/442750.jpg', 0, 'Segunda Guerra Mundial (1939-1945). Oskar Schindler (Liam Neeson), un hombre de enorme astucia y talento para las relaciones públicas, organiza un ambicioso plan para ganarse la simpatía de los nazis. Después de la invasión de Polonia por los alemanes (1939), consigue, gracias a sus relaciones con los nazis, la propiedad de una fábrica de Cracovia. Allí emplea a cientos de operarios judíos, cuya explotación le hace prosperar rápidamente. Su gerente (Ben Kingsley), también judío, es el verdadero director en la sombra, pues Schindler carece completamente de conocimientos para dirigir una empresa.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 3),
-(49, 'Pulp Fiction', '1994', 'Quentin Tarantino', 'http://ia.media-imdb.com/images/M/MV5BMjE0ODk2NjczOV5BMl5BanBnXkFtZTYwNDQ0NDg4._V1_SY317_CR4,0,214,317_AL_.jpg', 1, 'Jules y Vincent, dos asesinos a sueldo con muy pocas luces, trabajan para Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe. Cuando llega la hora de trabajar, ambos deben ponerse manos a la obra. Su misión: recuperar un misterioso maletín. ', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 5),
+(46, 'El padrino', '1972', 'Francis Ford Coppola', 'http://ia.media-imdb.com/images/M/MV5BMjEyMjcyNDI4MF5BMl5BanBnXkFtZTcwMDA5Mzg3OA@@._V1_SX214_AL_.jpg', 0, 'Don Vito Corleone (Marlon Brando) es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York. Tiene cuatro hijos: Connie (Talia Shire), el impulsivo Sonny (James Caan), el pusilánime Freddie (John Cazale) y Michael (Al Pacino), que no quiere saber nada de los negocios de su padre. Cuando Corleone, en contra de los consejos de \'Il consigliere\' Tom Hagen (Robert Duvall), se niega a intervenir en el negocio de las drogas, el jefe de otra banda ordena su asesinato. Empieza entonces una violenta y cruenta guerra entre las familias mafiosas.', '2019-02-13 16:04:30', '2019-03-07 18:08:53', 2.99, 3),
+(47, 'El Padrino. Parte II', '1974', 'Francis Ford Coppola', 'http://ia.media-imdb.com/images/M/MV5BNDc2NTM3MzU1Nl5BMl5BanBnXkFtZTcwMTA5Mzg3OA@@._V1_SX214_AL_.jpg', 0, 'Continuación de la historia de los Corleone por medio de dos historias paralelas: la elección de Michael Corleone como jefe de los negocios familiares y los orígenes del patriarca, el ya fallecido Don Vito, primero en Sicilia y luego en Estados Unidos, donde, empezando desde abajo, llegó a ser un poderosísimo jefe de la mafia de Nueva York.', '2019-02-13 16:04:30', '2019-03-08 15:20:44', 2.99, 1),
+(48, 'La lista de Schindler', '1993', 'Steven Spielberg', 'http://es.web.img3.acsta.net/c_215_290/pictures/14/02/27/09/35/442750.jpg', 0, 'Segunda Guerra Mundial (1939-1945). Oskar Schindler (Liam Neeson), un hombre de enorme astucia y talento para las relaciones públicas, organiza un ambicioso plan para ganarse la simpatía de los nazis. Después de la invasión de Polonia por los alemanes (1939), consigue, gracias a sus relaciones con los nazis, la propiedad de una fábrica de Cracovia. Allí emplea a cientos de operarios judíos, cuya explotación le hace prosperar rápidamente. Su gerente (Ben Kingsley), también judío, es el verdadero director en la sombra, pues Schindler carece completamente de conocimientos para dirigir una empresa.', '2019-02-13 16:04:30', '2019-03-07 18:09:07', 2.99, 1),
+(49, 'Pulp Fiction', '1994', 'Quentin Tarantino', 'http://ia.media-imdb.com/images/M/MV5BMjE0ODk2NjczOV5BMl5BanBnXkFtZTYwNDQ0NDg4._V1_SY317_CR4,0,214,317_AL_.jpg', 1, 'Jules y Vincent, dos asesinos a sueldo con muy pocas luces, trabajan para Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe. Cuando llega la hora de trabajar, ambos deben ponerse manos a la obra. Su misión: recuperar un misterioso maletín. ', '2019-02-13 16:04:30', '2019-03-10 22:19:31', 2.99, 5),
 (50, 'Cadena perpetua', '1994', 'Frank Darabont', 'http://ia.media-imdb.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SX214_AL_.jpg', 1, 'Acusado del asesinato de su mujer, Andrew Dufresne (Tim Robbins), tras ser condenado a cadena perpetua, es enviado a la cárcel de Shawshank. Con el paso de los años conseguirá ganarse la confianza del director del centro y el respeto de sus compañeros de prisión, especialmente de Red (Morgan Freeman), el jefe de la mafia de los sobornos.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 2),
 (51, 'El golpe', '1973', 'George Roy Hill', 'http://es.web.img2.acsta.net/c_215_290/pictures/14/03/27/13/16/401621.jpg', 0, 'Chicago, años treinta. Redford y Newman son dos timadores que deciden vengar la muerte de un viejo y querido colega, asesinado por orden de un poderoso gángster (Robert Shaw). Para ello urdirán un ingenioso y complicado plan con la ayuda de todos sus amigos y conocidos.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 5),
 (52, 'La vida es bella', '1997', 'Roberto Benigni', 'https://images-na.ssl-images-amazon.com/images/I/51iggHFltnL.jpg', 1, 'En 1939, a punto de estallar la Segunda Guerra Mundial (1939-1945), el extravagante Guido llega a Arezzo (Toscana) con la intención de abrir una librería. Allí conoce a Dora y, a pesar de que es la prometida del fascista Ferruccio, se casa con ella y tiene un hijo. Al estallar la guerra, los tres son internados en un campo de exterminio, donde Guido hará lo imposible para hacer creer a su hijo que la terrible situación que están padeciendo es tan sólo un juego.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 4),
-(53, 'Uno de los nuestros', '1990', 'Martin Scorsese', 'https://images-na.ssl-images-amazon.com/images/I/51vLLaqn8dL._SY445_.jpg', 0, 'Henry Hill, hijo de padre irlandés y madre siciliana, vive en Brooklyn y se siente fascinado por la vida que llevan los gángsters de su barrio, donde la mayoría de los vecinos son inmigrantes. Paul Cicero, el patriarca de la familia Pauline, es el protector del barrio. A los trece años, Henry decide abandonar la escuela y entrar a formar parte de la organización mafiosa como chico de los recados; muy pronto se gana la confianza de sus jefes, gracias a lo cual irá subiendo de categoría. ', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 3),
+(53, 'Uno de los nuestros', '1990', 'Martin Scorsese', 'https://images-na.ssl-images-amazon.com/images/I/51vLLaqn8dL._SY445_.jpg', 0, 'Henry Hill, hijo de padre irlandés y madre siciliana, vive en Brooklyn y se siente fascinado por la vida que llevan los gángsters de su barrio, donde la mayoría de los vecinos son inmigrantes. Paul Cicero, el patriarca de la familia Pauline, es el protector del barrio. A los trece años, Henry decide abandonar la escuela y entrar a formar parte de la organización mafiosa como chico de los recados; muy pronto se gana la confianza de sus jefes, gracias a lo cual irá subiendo de categoría. ', '2019-02-13 16:04:30', '2019-03-07 15:00:12', 2.99, 4),
 (54, 'Alguien voló sobre el nido del cuco', '1975', 'Milos Forman', 'http://ia.media-imdb.com/images/M/MV5BMTk5OTA4NTc0NF5BMl5BanBnXkFtZTcwNzI5Mzg3OA@@._V1_SY317_CR12,0,214,317_AL_.jpg', 0, 'Randle McMurphy (Jack Nicholson), un hombre condenado por asalto, y un espíritu libre que vive contracorriente, es recluido en un hospital psiquiátrico. La inflexible disciplina del centro acentúa su contagiosa tendencia al desorden, que acabará desencadenando una guerra entre los pacientes y el personal de la clínica con la fría y severa enfermera Ratched (Louise Fletcher) a la cabeza. La suerte de cada paciente del pabellón está en juego.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 3),
 (55, 'American History X', '1998', 'Tony Kaye', 'http://ia.media-imdb.com/images/M/MV5BMjMzNDUwNTIyMF5BMl5BanBnXkFtZTcwNjMwNDg3OA@@._V1_SY317_CR17,0,214,317_AL_.jpg', 0, 'Derek (Edward Norton), un joven \"skin head\" californiano de ideología neonazi, fue encarcelado por asesinar a un negro que pretendía robarle su furgoneta. Cuando sale de prisión y regresa a su barrio dispuesto a alejarse del mundo de la violencia, se encuentra con que su hermano pequeño (Edward Furlong), para quien Derek es el modelo a seguir, sigue el mismo camino que a él lo condujo a la cárcel.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 5),
 (56, 'Sin perdón', '1992', 'Clint Eastwood', 'https://images-na.ssl-images-amazon.com/images/I/61ELZIraHbL._SY679_.jpg', 0, 'William Munny (Clint Eastwood) es un pistolero retirado, viudo y padre de familia, que tiene dificultades económicas para sacar adelante a su hijos. Su única salida es hacer un último trabajo. En compañía de un viejo colega (Morgan Freeman) y de un joven inexperto (Jaimz Woolvett), Munny tendrá que matar a dos hombres que cortaron la cara a una prostituta.', '2019-02-13 16:04:30', '2019-02-13 16:04:30', 2.99, 4),
@@ -174,7 +202,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Adrian', 'avalera@gmail.com', NULL, '$2y$10$jVqeoTAFlYDrk1HdltwxMOy1RvIiIWHUQnwmxnK1cWxVvFSWCSiRS', 'K9GbM3xp1kN7KwP8r4zLmPfiqmMJ3p6uCYYjd3mrDfO84fwu0LD343g1lXdU', '2019-01-16 14:47:58', '2019-01-16 14:47:58'),
+(3, 'Adrian', 'avalera@gmail.com', NULL, '$2y$10$jVqeoTAFlYDrk1HdltwxMOy1RvIiIWHUQnwmxnK1cWxVvFSWCSiRS', 'N5B1wdTlZNVqkl2uPviR7ZiC9Yl9kDyFzwBXsPcByXkn0QwMhhYCbsgk1Ww9', '2019-01-16 14:47:58', '2019-01-16 14:47:58'),
 (4, 'Paco', 'pMartinez@gmail.com', NULL, '$2y$10$se92qbALBV/lp.b9AYN40u8903KiE4lNQ1tPnnOj0Xgx4VKEmgZAG', NULL, '2019-01-16 14:47:58', '2019-01-16 14:47:58');
 
 --
@@ -199,8 +227,7 @@ ALTER TABLE `factura`
 -- Índexs per a la taula `lineafactura`
 --
 ALTER TABLE `lineafactura`
-  ADD KEY `lineafactura_id_factura_foreign` (`id_factura`),
-  ADD KEY `lineafactura_articuls_foreign` (`articuls`);
+  ADD KEY `lineafactura_id_factura_foreign` (`id_factura`);
 
 --
 -- Índexs per a la taula `migrations`
@@ -235,13 +262,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la taula `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201922594;
 
 --
 -- AUTO_INCREMENT per la taula `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT per la taula `movies`
