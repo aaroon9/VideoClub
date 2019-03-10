@@ -26,7 +26,7 @@ class CartController extends Controller
   public function destroyCart(){
     Cart::destroy();
     Notification::success('Carrito Vaciado');
-    return view('payments.carrito');
+    return view('catalog.catalog');
   }
 }
  ?>

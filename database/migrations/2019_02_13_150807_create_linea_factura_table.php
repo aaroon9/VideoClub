@@ -16,8 +16,7 @@ class CreateLineaFacturaTable extends Migration
         Schema::create('lineaFactura', function (Blueprint $table) {
             $table->integer('id_factura')->unsigned();
             $table->foreign('id_factura')->references('id')->on('factura');
-            $table->integer('articuls')->unsigned();
-            $table->foreign('articuls')->references('id')->on('movies');
+            $table->integer('articuls', 2);
             $table->timestamps();
         });
     }
