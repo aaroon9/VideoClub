@@ -57,8 +57,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::put('/mycart/addItem/{id}', 'CartController@createItem');
 	Route::put('/mycart/destroyItem', 'CartController@destroyCart');
 
-	//Factura
-	Route::put('/ticket', 'FacturaController@genTicket');
+	// facturas
+	Route::get('myinvoices', 'InvoicesController@myinvoices');
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');
@@ -66,8 +66,7 @@ Route::group(['middleware' => 'auth'], function() {
 	// Search
 	Route::get('/search', 'CatalogController@search');
 
-	// facturas
-	Route::get('myinvoices', 'InvoicesController@myinvoices');
+
 
 });
 

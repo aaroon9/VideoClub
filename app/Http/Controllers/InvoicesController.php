@@ -13,6 +13,18 @@ use ConsoleTVs\Invoices\Classes\Invoice;
 class InvoicesController extends Controller
 {
   public function myinvoices(){
+    //dd( date("YmdHis").Auth::user()->id);
+
+    $id_F = date("YmdHis").Auth::user()->id);
+
+
+    $pelicula = Movie::all();
+    dd($pelicula);
+
+
+    /*$invoice = Invoice::make()
+
+
 
     $invoice = Invoice::make()
                     ->addItem('Test Item', 10.25, 2, 1412)
@@ -36,7 +48,7 @@ class InvoicesController extends Controller
                     ])
                     ->save('public/myinvoicename.pdf');
 
-                    return view('payments.facturas');
+                    return view('payments.facturas');*/
   }
 
 }
