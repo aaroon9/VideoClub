@@ -36,13 +36,8 @@
                             {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-<<<<<<< HEAD
                             <a class="dropdown-item" href="/mysite">Favoritos</a>
                             <a class="dropdown-item" href="/myinvoices">Mis facturas</a>
-=======
-                            <a class="dropdown-item" href="/mysite">Mis peliculas</a>
-                            <a class="dropdown-item" href="/getMyinvoices">Mis facturas</a>
->>>>>>> 95592dc0c8ac7cc000c07cec01d95034c2d8bbc4
                             <form action="{{ url('/logout') }}" method="POST">
                                 {{ csrf_field() }}
                                 <button type="submit" class="dropdown-item">
