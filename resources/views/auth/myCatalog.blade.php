@@ -3,7 +3,7 @@
 @section('content')
 
   <div class="row">
-      <p class="col-lg-12 text-uppercase">Tus peliculas alquiladas</p>
+      <p class="col-lg-12 text-uppercase" style="font-size:19px">Tus peliculas favoritas</p>
 
     @foreach( $alquilers as $alquiler )
 
