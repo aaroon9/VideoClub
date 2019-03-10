@@ -2,27 +2,32 @@
 
 @section('content')
 
-Facturas
-$invoice = ConsoleTVs\Invoices\Classes\Invoice::make()
-                ->addItem('Test Item', 10.25, 2, 1412)
-                ->addItem('Test Item 2', 5, 2, 923)
-                ->addItem('Test Item 3', 15.55, 5, 42)
-                ->addItem('Test Item 4', 1.25, 1, 923)
-                ->addItem('Test Item 5', 3.12, 1, 3142)
-                ->addItem('Test Item 6', 6.41, 3, 452)
-                ->addItem('Test Item 7', 2.86, 1, 1526)
-                ->number(4021)
-                ->tax(21)
-                ->notes('Lrem ipsum dolor sit amet, consectetur adipiscing elit.')
-                ->customer([
-                    'name'      => 'Èrik Campobadal Forés',
-                    'id'        => '12345678A',
-                    'phone'     => '+34 123 456 789',
-                    'location'  => 'C / Unknown Street 1st',
-                    'zip'       => '08241',
-                    'city'      => 'Manresa',
-                    'country'   => 'Spain',
-                ])
-                ->download('demo');
+<table class="table" style="color:#fff">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Fecha</th>
+          <th>Descargar</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr class="carrito-separacio">
+      <td>&nbsp;</td>
+    </tr>
+
+    @foreach( $facturas as $factura )
+      @if($factura->id_user == Auth::user()->id)
+          <tr>
+              <td class="carrito-prods">
+                     <p>{{ $factura->id }}</p>
+              </td>
+              <td class="carrito-prods">{{$factura->created_at}}</td>
+              <td class="carrito-prods"><a href="/download/{{$factura->id}}">Ver Factura</a></td>
+          </tr>
+        @endif
+      @endforeach
+  </tbody>
+
+</table>
 
 @stop

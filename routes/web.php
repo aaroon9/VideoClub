@@ -59,6 +59,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	// facturas
 	Route::get('myinvoices', 'InvoicesController@myinvoices');
+	Route::get('/getMyinvoices', 'InvoicesController@getInvoices');
+	Route::get('/download/{id}', 'InvoicesController@getDownload');
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');

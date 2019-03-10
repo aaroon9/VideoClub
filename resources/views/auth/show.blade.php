@@ -25,7 +25,7 @@
           @endforeach
 
 
-	        	<form action="{{action('AlquilerController@addMore', $pelicula->id)}}"
+	       <?php /*<form action="{{action('AlquilerController@addMore', $pelicula->id)}}"
 				    method="POST" style="display:inline">
 				    {{ method_field('PUT') }}
 				    {{ csrf_field() }}
@@ -39,7 +39,7 @@
             </div>
 	        			<button type="submit" class="btn btn-info"><a>Añadir más días</a>
 	        			</button>
-				</form>
+				</form>*/ ?>
 
 	        <?php /*<a class="btn btn-warning" href="/catalog/edit/{{$pelicula->id}}">Editar película</a>*/ ?>
 	        <form action="{{action('AlquilerController@putReturn', $pelicula->id)}}"
@@ -47,7 +47,7 @@
 			    {{ method_field('PUT') }}
 			    {{ csrf_field() }}
 			     <button type="submit" class="btn btn-dark" style="display:inline">
-			        Devolver Pelicula
+			        Quitar de favoritos
 			    </button>
 			</form>
 	        <a class="btn btn-light" href="/mysite">Volver al listado</a>
