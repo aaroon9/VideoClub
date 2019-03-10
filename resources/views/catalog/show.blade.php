@@ -37,6 +37,7 @@
                   <option>5</option>
                 </select>
             </div>
+            <input type="hidden" name="precio" id="precio" value="{{$pelicula->precio}}"> 
 				    	<p><span style="font-weight: bold;">Estado: </span>Película disponible</p>
 	        			<button type="submit" class="btn btn-info"><a>Alquilar película</a>
 	        			</button>

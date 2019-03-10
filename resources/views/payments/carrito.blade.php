@@ -58,14 +58,21 @@
    		</tr> -->
    	</tfoot>
 </table>
-<form class="" action="{{action('CartController@destroyCart')}}" method="POST">
-  {{ method_field('PUT') }}
-  {{ csrf_field() }}
-  <button type="submit" name="button" class="btn btn-danger">Vaciar carrito</button>
-</form>
-<?php /*<form class="" action="{{action('CartController@genTicket')}}" method="POST" style="display:inline">
-  {{ method_field('PUT') }}
-  {{ csrf_field() }}
-  <button type="submit" name="button" class="btn btn-primary">Finalizar compra</button>
-</form>*/ ?>
+<div class="row botones-carrito">
+<div class="col">
+  <form class="" action="{{action('CartController@destroyCart')}}" method="POST">
+    {{ method_field('PUT') }}
+    {{ csrf_field() }}
+    <button type="submit" name="button" class="boton-carrito vaciar-carrito">Vaciar carrito</button>
+  </form>
+</div>
+<div class="col-fin">
+  <form class="" action="{{action('InvoicesController@myinvoices')}}" method="POST" style="display:inline">
+    {{ method_field('PUT') }}
+    {{ csrf_field() }}
+    <button type="submit" name="button" class="boton-carrito finalizar-compra">Finalizar compra</button>
+  </form>
+</div>
+</div>
+
 @stop

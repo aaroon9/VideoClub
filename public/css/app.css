@@ -11920,6 +11920,38 @@ a.text-dark:focus {
   margin-bottom: 0;
 }
 
+.boton-carrito {
+  background-color: #141414;
+  font-size: 150%;
+  padding: 0.7rem 1rem;
+  color: white;
+}
+
+.vaciar-carrito {
+  border: 1px solid red;
+}
+
+.vaciar-carrito:hover {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.finalizar-compra {
+  border: 1px solid #FFA903;
+}
+
+.finalizar-compra:hover {
+  background-color: rgba(255, 169, 3, 0.3);
+}
+
+.botones-carrito {
+  padding-top: 5rem;
+}
+
+.col-fin {
+  float: right;
+  padding-right: 1rem;
+}
+
 .body-master {
   background-color: #141414;
   color: white;
