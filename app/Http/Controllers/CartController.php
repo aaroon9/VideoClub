@@ -11,17 +11,22 @@ use Cart;
 
 class CartController extends Controller
 {
+
   public function getView(){
     $movie = Movie::all();
     return view('payments.carrito', array('pelicula' => $movie));
   }
-  public function createItem($id_movie, Request $request){
+  public function createItem($id_movie){
 
-    Cart::add('3', $id_movie, 1, 3.90);  //Afegir element
+     Cart::add($id_movie, '3', 1, 3.90);  //Afegir element
 
-    Notification::success('Pelicula al carrito');
+    Notification::success('Pelicula añadida al carrito');
     return redirect('/catalog/show/'.$id_movie);
-
+  }
+  public function destroyCart(){
+    Cart::destroy();
+    Notification::success('Carrito Vaciado');
+    return view('payments.carrito');
   }
 }
  ?>

@@ -55,6 +55,10 @@ Route::group(['middleware' => 'auth'], function() {
 	//Cart
 	Route::get('/mycart', 'CartController@getView');
 	Route::put('/mycart/addItem/{id}', 'CartController@createItem');
+	Route::put('/mycart/destroyItem', 'CartController@destroyCart');
+
+	//Factura
+	Route::put('/ticket', 'FacturaController@genTicket');
 
 	/*Rutas para eliminar*/
 	Route::delete('/catalog/delete/{id}', 'CatalogController@deleteMovie');

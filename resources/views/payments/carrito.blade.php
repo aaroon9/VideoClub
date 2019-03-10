@@ -18,11 +18,11 @@
       </tr>
 
    		@foreach( Cart::content() as $row )
-      <?php  /*dd($row)*/   ?>
+      <?php  //dd(Cart::content())   ?>
 	        <tr>
            		<td class="carrito-prods">
                 @foreach($pelicula as $peli)
-                  @if($row->name == $peli->id)
+                  @if($row->id == $peli->id)
          				     <p>{{ $peli->title }}</p>
                   @endif
                 @endforeach
@@ -58,4 +58,14 @@
    		</tr> -->
    	</tfoot>
 </table>
+<form class="" action="{{action('CartController@destroyCart')}}" method="POST">
+  {{ method_field('PUT') }}
+  {{ csrf_field() }}
+  <button type="submit" name="button" class="btn btn-danger">Vaciar carrito</button>
+</form>
+<?php /*<form class="" action="{{action('CartController@genTicket')}}" method="POST" style="display:inline">
+  {{ method_field('PUT') }}
+  {{ csrf_field() }}
+  <button type="submit" name="button" class="btn btn-primary">Finalizar compra</button>
+</form>*/ ?>
 @stop
