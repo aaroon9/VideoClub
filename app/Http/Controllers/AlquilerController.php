@@ -34,7 +34,7 @@ class AlquilerController extends Controller
       // Guardem els canvis a la base de dades
       $peli->save();
 
-      Notification::success('Pelicula alquilada');
+      Notification::success('Pelicula añadida');
 
         return redirect('/catalog');
     }
@@ -58,7 +58,7 @@ class AlquilerController extends Controller
       }
 
       if($peli->save()){
-        Notification::success('Pelicula devuelta');
+        Notification::success('Pelicula quitada');
         return redirect('/catalog/show/'.$id_movie);
       }
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUnidadesToMoviesTable extends Migration
+class AddCreateToFacturaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddUnidadesToMoviesTable extends Migration
      */
     public function up()
     {
-        Schema::table('movies', function (Blueprint $table) {
-            //$table->double('precio',4,2);
-          //  $table->integer('unidads');
+        Schema::table('factura', function (Blueprint $table) {
+            $table->timestamps();
         });
     }
 
@@ -26,6 +25,8 @@ class AddUnidadesToMoviesTable extends Migration
      */
     public function down()
     {
-
+        Schema::table('factura', function (Blueprint $table) {
+            //
+        });
     }
 }

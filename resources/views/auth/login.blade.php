@@ -31,7 +31,8 @@
 
         <a href="{{ url('/login/github') }}" class="btn botoLoginGithub" role="button"><i class="fab fa-github"></i> Github</a>
         <a href="{{ url('/login/twitter') }}" class="btn botoLoginTwitter" role="button"><i class="fab fa-twitter"></i> Twitter</a>
-        <a href="{{ url('/login/google') }}" class="btn botoLoginGoogle" role="button"><i class="fab fa-google"></i> Google</a>
+        <!-- No funciona -->
+        <!-- <a href="{{ url('/login/google') }}" class="btn botoLoginGoogle" role="button"><i class="fab fa-google"></i> Google</a> -->
 
         <div style="text-align: right;">
           @if (Route::has('password.request'))

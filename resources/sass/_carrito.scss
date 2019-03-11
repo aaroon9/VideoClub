@@ -27,3 +27,33 @@
  .tabla-carrito p {
    margin-bottom: 0;
  }
+
+.boton-carrito {
+  background-color: $negre;
+  font-size: 150%;
+  padding: 0.7rem 1rem;
+  color: white;
+}
+
+.vaciar-carrito {
+  border: 1px solid red;
+}
+.vaciar-carrito:hover {
+  background-color: rgba(red, 0.3);
+}
+
+.finalizar-compra {
+  border: 1px solid $taronja;
+}
+.finalizar-compra:hover {
+  background-color: rgba($taronja, 0.3);
+}
+
+.botones-carrito {
+  padding-top: 5rem;
+}
+
+.col-fin {
+  float: right;
+  padding-right: 1rem;
+}

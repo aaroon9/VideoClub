@@ -78,8 +78,9 @@ class CatalogController extends Controller
 
     public function search (Request $request) {
       $search = $request->get('search');
-      $posts = DB::table('movies')->where('title', 'like', '%'.$search.'%');
+      $posts = DB::table('movies')->where('title', 'like', '%'.$search.'%')->get();
       return view('catalog.catalog', ['peliculas' => $posts]);
+      // return dd($posts);
     }
 
 }

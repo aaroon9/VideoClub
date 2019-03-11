@@ -18,6 +18,7 @@ class CartController extends Controller
     $movie = Movie::all();
     return view('payments.carrito', array('pelicula' => $movie));
   }
+<<<<<<< HEAD
 
   public function createItem($id_movie){
 
@@ -42,15 +43,23 @@ class CartController extends Controller
 
 
      Cart::add($id_movie, '3', 1, 3.90);  //Afegir element
+=======
 
-    Notification::success('Pelicula añadida al carrito');
-    return redirect('/catalog/show/'.$id_movie);
+  public function createItem($id_movie, Request $request){
+>>>>>>> f46f8744dfc6630be0770b7faf3888cfa1322942
+
+     $precio = $request->input('precio');
+
+     Cart::add($id_movie, '3', 1, $precio);  //Afegir element
+
+     Notification::success('Pelicula añadida al carrito');
+     return redirect('/catalog/show/'.$id_movie);
   }
 
   public function destroyCart(){
     Cart::destroy();
     Notification::success('Carrito Vaciado');
-    return view('payments.carrito');
+    return redirect('/catalog');
   }
 }
  ?>
