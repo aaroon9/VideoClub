@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::put('/mycart/destroyItem', 'CartController@destroyCart');
 
 	// facturas
-	Route::get('myinvoices', 'InvoicesController@myinvoices');
+	Route::put('/myinvoices', 'InvoicesController@myinvoices');
 	Route::get('/getMyinvoices', 'InvoicesController@getInvoices');
 	Route::get('/download/{id}', 'InvoicesController@getDownload');
 

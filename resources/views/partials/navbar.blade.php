@@ -37,7 +37,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/mysite">Favoritos</a>
-                            <a class="dropdown-item" href="/myinvoices">Mis facturas</a>
+                            <a class="dropdown-item" href="/getMyinvoices">Mis facturas</a>
                             <form action="{{ url('/logout') }}" method="POST">
                                 {{ csrf_field() }}
                                 <button type="submit" class="dropdown-item">
